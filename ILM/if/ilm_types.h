@@ -54,8 +54,8 @@ typedef signed char    sint8;														/**< \brief AUTOSAR: signed int 8Bit 
 typedef unsigned char  uint8;														/**< \brief AUTOSAR: unsigned int 8Bit            0 .. 255			*/
 typedef signed short   sint16;														/**< \brief AUTOSAR: signed int 16Bit        -32768 .. +32767		*/
 typedef unsigned short uint16;														/**< \brief AUTOSAR: unsigned int 16Bit           0 .. 65535		*/
-typedef signed long    sint32;														/**< \brief AUTOSAR: signed int 32Bit   -2147483648 .. +2147483647	*/
-typedef unsigned long  uint32;														/**< \brief AUTOSAR: unsigned int 32Bit           0 .. 4294967295	*/
+typedef signed int     sint32;														/**< \brief AUTOSAR: signed int 32Bit   -2147483648 .. +2147483647	*/
+typedef unsigned int   uint32;														/**< \brief AUTOSAR: unsigned int 32Bit           0 .. 4294967295	*/
 typedef float          float32;														/**< \brief AUTOSAR: float 32Bit									*/
 typedef double         float64;														/**< \brief AUTOSAR: float 64Bit									*/
 
