@@ -83,7 +83,11 @@ static TimeInternal _ILM_TIME_INC;
  */
 static ILM_OFFSET_T _ILM_HW_CalcCompare(uint16 NextIdx)
 {
-	return (ILM_OFFSET_T)(((float32)(_ILM_HW_Table[NextIdx].Offset-_ILM_HW_Table[_ILM_HW_TableIdx].Offset))*_ILM_HW_PeriodScale);
+	if(!NextIdx){
+		return (ILM_OFFSET_T)(((float32)(_ILM_MACRO_PERIOD-_ILM_HW_Table[_ILM_HW_TableIdx].Offset))*_ILM_HW_PeriodScale);
+	} else {
+		return (ILM_OFFSET_T)(((float32)(_ILM_HW_Table[NextIdx].Offset-_ILM_HW_Table[_ILM_HW_TableIdx].Offset))*_ILM_HW_PeriodScale);
+	}
 }
 
 /**
