@@ -143,7 +143,9 @@ void __attribute__((unused)) ILM_HW_Init(ILM_HW_LET_TABLE_T * pTable, uint32 Tab
 void ILM_HW_StartTimer(void)
 {
 	getTime(&_ILM_TIME);
-	ETH_PTPTime_SetCompare(_ILM_TIME.seconds + 2,0);
+	_ILM_TIME.seconds = _ILM_TIME.seconds + 2;
+	_ILM_TIME.nanoseconds = 0;
+	ETH_PTPTime_SetCompare(_ILM_TIME.seconds, _ILM_TIME.nanoseconds);
 }
 
 /**
@@ -159,7 +161,6 @@ uint32 __attribute__((unused)) ILM_HW_Isr_Master(void)
 	uint32 CoreMask = _ILM_HW_Table[_ILM_HW_TableIdx].CoreMask;
 	uint16 NextIdx = (_ILM_HW_TableIdx + 1) % _ILM_HW_TableSize;
 
-	getTime(&_ILM_TIME);
 	_ILM_TIME_INC.seconds = 0;
 	_ILM_TIME_INC.nanoseconds = _ILM_HW_CalcCompare(NextIdx);
 	addTime(&_ILM_TIME,&_ILM_TIME,&_ILM_TIME_INC);
